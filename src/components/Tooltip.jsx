@@ -14,15 +14,10 @@ export default function Tooltip({ text, children }) {
         className="tooltip"
       >
         {children}
-        {showTooltip && <div className="tooltiptext">{text}</div>}
+        {showTooltip && <div className="tooltiptext" role="tooltip">{text}</div>}
       </div>
 
       <div className="forhr">
-        <h1>
-          <div>
-            
-          </div>
-        </h1>
       </div>
     </div>
   );
