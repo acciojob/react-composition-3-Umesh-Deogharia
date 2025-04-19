@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import './../styles/App.css';
-import Tooltip from "./Tooltip,";
-import Tooltip2 from "./Tooltip2";
+import Tooltip from "./Tooltip";
 
 const App = () => {
   const [text ,setText] = useState({text1 : false, text2 : false});
@@ -15,11 +14,11 @@ const App = () => {
 
 
       <Tooltip text={<h2>This is a tooltip </h2>}>
-        <h1 id="tooltip1">Hover over me</h1>
+        <h2 className="tooltip">Hover over me</h2>
       </Tooltip>
 
       <Tooltip text={<span>This is another tooltip </span>}>
-        <p id="tooltip2">Hover over me to see another tooltip</p>
+        <p className="tooltip">Hover over me to see another tooltip</p>
       </Tooltip>
     </div>
   );
