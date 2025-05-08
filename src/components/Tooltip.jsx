@@ -1,24 +1,29 @@
-import React from "react";
-import { useState } from "react";
-export default function Tooltip({ text, children }) {
-  const [showTooltip, setShowTooltip] = useState(false);
-  return (
-    <div className="maindiv" style={{ paddingTop: "20px" }}>
-      <div
-        onMouseEnter={() => {
-          setShowTooltip(true);
-        }}
-        onMouseLeave={() => {
-          setShowTooltip(false);
-        }}
-        className="tooltip"
-      >
-        {children}
-        {showTooltip && <div className="tooltiptext" role="tooltip">{text}</div>}
-      </div>
+import React, { useState } from "react";
+ // Ensure this imports your CSS
 
-      <div className="forhr">
-      </div>
+const Tooltip = ({ text, children }) => {
+  const [visible, setVisible] = useState(false);
+
+  const handleMouseEnter = () => {
+    setVisible(true);
+  };
+
+  const handleMouseLeave = () => {
+    setVisible(false);
+  };
+
+  return (
+    <div
+      className="tooltip"
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
+      {children}
+      {visible && (
+        <div className="tooltiptext">{text}</div> // Only show when visible
+      )}
     </div>
   );
-}
+};
+
+export default Tooltip;
